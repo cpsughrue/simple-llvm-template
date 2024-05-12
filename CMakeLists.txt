@@ -6,7 +6,7 @@ project(llvm-tutor-hello-world)
 #===============================================================================
 
 # Set this to a valid LLVM installation dir
-set(LLVM_INSTALL_DIR "/opt/llvm-project/build")
+set(LLVM_INSTALL_DIR "/home/cpsughrue/llvm-project/build")
 
 # Add the location of LLVMConfig.cmake to CMake search paths (so that find_package can locate it)
 list(APPEND CMAKE_PREFIX_PATH "${LLVM_INSTALL_DIR}/lib/cmake/llvm/")
@@ -41,6 +41,7 @@ endif()
 # 3. ADD THE TARGET
 #===============================================================================
 add_library(HelloWorld SHARED HelloWorld.cpp)
+add_library(MBAAdd SHARED MBAAdd.cpp)
 
 # Allow undefined symbols in shared objects on Darwin (this is the default
 # behaviour on Linux)
