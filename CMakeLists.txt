@@ -40,9 +40,16 @@ endif()
 #===============================================================================
 # 3. ADD THE TARGET
 #===============================================================================
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
+
 add_library(HelloWorld SHARED HelloWorld.cpp)
 add_library(MBAAdd SHARED MBAAdd.cpp)
 
 # Allow undefined symbols in shared objects on Darwin (this is the default
 # behaviour on Linux)
 target_link_libraries(HelloWorld "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")
+
+#===============================================================================
+# 4. ADD SUB-TARGETS
+#===============================================================================
+add_subdirectory(test)
